@@ -101,9 +101,11 @@ $(function () {
   });
 
   $('.quantity-button').on('click', function () {
-    let summ = $('.nights').val() * $('.summ').data('nights') + ($('.guests').val() - 1) * $('.summ').data('guests')
-    $('.summ').html('$' + summ)
-  })
+		var parents = $(this).parents('.travel-slider__info');
+		let summ = $('.nights', parents).val() * $('.summ', parents).data('guests') * $('.guests', parents).val();
+		$('.summ', parents).html('$' + summ);
+	});
+  
 
   let summ = $('.nights').val() * $('.summ').data('nights') + ($('.guests').val() - 1) * $('.summ').data('guests')
   $('.summ').html('$' + summ)
